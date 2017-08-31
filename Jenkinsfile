@@ -15,6 +15,9 @@ node {
         git 'https://github.com/JBotTest/numerals'
     }
 
+    stage('NPM') {
+        sh 'npm install'
+    }
     stage('Test') {
         sh 'jasmine'
     }
