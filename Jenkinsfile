@@ -12,7 +12,7 @@ node {
     }
 
     stage('Checkout') {
-        git 'https://github.com/JBotTest/TestJenkinsFuntime2'
+        git 'https://github.com/JBotTest/numerals'
     }
 
     stage('Version') {
