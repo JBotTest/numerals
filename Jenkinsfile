@@ -15,10 +15,6 @@ node {
         git 'https://github.com/JBotTest/numerals'
     }
 
-    stage('NPM') {
-        sh 'npm install'
-    }
-
     stage('Test'){
 
              env.NODE_ENV = "test"
