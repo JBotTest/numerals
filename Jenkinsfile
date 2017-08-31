@@ -6,18 +6,13 @@ node {
 
         properties([
                 buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '10')),
-                [$class: 'GithubProjectProperty', displayName: '', projectUrlStr: 'https://github.com/bertjan/spring-boot-sample/'],
+                [$class: 'GithubProjectProperty', displayName: '', projectUrlStr: 'https://github.com/JBotTest/numerals'],
                 pipelineTriggers([[$class: 'GitHubPushTrigger']])
             ])
     }
 
     stage('Checkout') {
         git 'https://github.com/JBotTest/numerals'
-    }
-
-    stage('Version') {
-        sh "echo \'\ninfo.build.version=\'$version >> src/main/resources/application.properties || true"
-        sh "mvn -B -V -U -e versions:set -DnewVersion=$version"
     }
 
     stage('Test') {
